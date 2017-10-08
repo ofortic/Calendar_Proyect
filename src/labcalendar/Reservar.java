@@ -33,24 +33,21 @@ public class Reservar extends javax.swing.JFrame {
      */
     public Reservar() {
         initComponents();
-        mostrarError("Exito", "Esta entrando!!!.");
+        mostrarMensaje("Entra", "Esta entrando pero no muestra bien los datos del archivo");
         
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         try (Scanner lector = new Scanner(archivoHorasA)) { // Leer archivo
                 while (lector.hasNextLine()) { // Mientras el archivo contenga líneas
                     String linea = lector.nextLine(); // Leer línea
                     String[] datos = linea.split(","); // Obtener datos
-                    
                     modelo.addRow(new Object[]{datos[0],datos[1], datos[2]});
-                    
-                    
                 }
             } catch (IOException ex) {
                 
         }
     }
     DateFormat d = DateFormat.getDateInstance();
-    void mostrarError(String title, String descr) {
+    void mostrarMensaje(String title, String descr) {
         JOptionPane.showMessageDialog(null, descr, title, JOptionPane.ERROR_MESSAGE);
     }
     /**
