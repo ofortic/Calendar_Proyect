@@ -219,7 +219,7 @@ public class Reservar extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-        if(archivoHorasK.exists() && K.fechas!=null){
+        if(archivoHorasK != null){
             try {
                 BufferedWriter escritorK = new BufferedWriter(new FileWriter(archivoHorasK));
                 for(String s : K.fechas){
@@ -229,11 +229,12 @@ public class Reservar extends javax.swing.JFrame {
                     escritorK.newLine();
                 }
                 escritorK.close();
+                mostrarMensaje("Guardado","Guardado K");
             } catch (IOException ex) {
-                Logger.getLogger(Reservar.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarMensaje("Error", "error desconocido");
             }
         }
-        if(archivoHorasG.exists() && G.fechas!=null){
+        if(archivoHorasG != null){
             try {
                 BufferedWriter escritorG = new BufferedWriter(new FileWriter(archivoHorasG));
                 for(String s : G.fechas){
@@ -243,11 +244,12 @@ public class Reservar extends javax.swing.JFrame {
                     escritorG.newLine();
                 }
                 escritorG.close();
+                mostrarMensaje("Guardado","Guardado G");
             } catch (IOException ex) {
-                Logger.getLogger(Reservar.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarMensaje("Error", "error desconocido");
             }
         }
-        if(archivoHorasA.exists() && A.fechas!=null){
+        if(archivoHorasA != null){
             try {
                 BufferedWriter escritorA = new BufferedWriter(new FileWriter(archivoHorasA));
                 for(String s : A.fechas){
@@ -257,8 +259,9 @@ public class Reservar extends javax.swing.JFrame {
                     escritorA.newLine();
                 }
                 escritorA.close();
+                mostrarMensaje("Guardado","Guardado A");
             } catch (IOException ex) {
-                Logger.getLogger(Reservar.class.getName()).log(Level.SEVERE, null, ex);
+                mostrarMensaje("Error", "error desconocido");
             }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
